@@ -36,7 +36,7 @@ def download_google_maps_image(lat, lon, zoom, width, height):
 # Ensure the output directory exists
 os.makedirs(output_folder, exist_ok=True)
 
-# Example coordinates for KSA
+# Example coordinates
 coordinates = [
     (24.7136, 46.6753),  # Riyadh
     (21.4858, 39.1925),  # Jeddah
