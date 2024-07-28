@@ -1,6 +1,13 @@
 import os
 import requests
 import json
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Get API key from environment variables
+google_maps_api_key = os.getenv('GOOGLE_MAPS_API_KEY')
 
 # Load configuration
 with open('config.json') as config_file:
@@ -11,7 +18,7 @@ google_maps_config = config['google_maps']
 
 def download_google_maps_image(lat, lon, zoom, width, height):
     url = google_maps_config['url_template'].format(
-        lat=lat, lng=lon, zoom=zoom, width=width, height=height, api_key=google_maps_config['api_key']
+        lat=lat, lng=lon, zoom=zoom, width=width, height=height, api_key=google_maps_api_key
     )
 
     response = requests.get(url)

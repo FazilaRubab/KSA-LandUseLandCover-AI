@@ -1,0 +1,6 @@
+{
+  "output_folder": "output",
+  "google_maps": {
+    "url_template": "https://maps.googleapis.com/maps/api/staticmap?center={lat},{lng}&zoom={zoom}&size={width}x{height}&maptype=satellite&key={api_key}"
+  }
+}
