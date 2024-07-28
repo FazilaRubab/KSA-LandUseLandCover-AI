@@ -2,7 +2,7 @@
 
 Repository for downloading images from google earth , specifically of KSA.
 
-#Pre Requisites
+## Pre Requisites
 1. Login in Google Cloud Console
 2. Create your project
 3. Enable google earth API key
