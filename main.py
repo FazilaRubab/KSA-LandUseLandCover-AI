@@ -1,5 +1,7 @@
-import json
+import json, os
 from google_earth_data_download import download_google_earth_image
+from google_earth_data_download import tif_to_numpy_and_resolution
+
 
 if __name__ == "__main__":
     # Load configuration
@@ -7,7 +9,7 @@ if __name__ == "__main__":
         config = json.load(config_file)
 
     # Define input parameters
-    coordinates = {
+    coords = {
         'xMin': 39.1,
         'yMin': 22.3,
         'xMax': 39.2,
@@ -32,4 +34,15 @@ if __name__ == "__main__":
     output_dir = config['output_folder']
 
     # Call the function with the provided parameters
-    download_google_earth_image(coordinates, scale, collection_params, viz_params, output_dir)
+    tif_path = download_google_earth_image(coords, scale, collection_params,
+                                viz_params=None, #viz_params,
+                                output_dir=output_dir)
+
+    tif_path = os.path.join(output_dir, f"{tif_path}.tif")
+
+    # Convert TIFF to NumPy array and calculate resolution
+    image_array, resolution = tif_to_numpy_and_resolution(tif_path)
+
+    # Print the results
+    print("Image array shape:", image_array.shape)
+    print("Resolution (x_res, y_res):", resolution)
