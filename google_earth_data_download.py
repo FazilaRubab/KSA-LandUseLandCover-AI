@@ -90,3 +90,28 @@ def tif_to_numpy_and_resolution(tif_path):
 
 
     return image_array, (x_res, y_res)
+
+    """
+# Define input parameters
+coords = {
+    'xMin': 39.1,
+    'yMin': 22.3,
+    'xMax': 39.2,
+    'yMax': 22.41
+}
+scale = 30
+
+collection_params = {
+    'collection_id': 'LANDSAT/LC08/C02/T1',
+    'start_date': '2023-01-01',
+    'end_date': '2023-12-31',
+    'cloud_cover': 10
+}
+
+viz_params = {
+    'bands': ['B4', 'B3', 'B2'],  # RGB bands
+    'min': 90,
+    'max': 100,
+    'gamma': [1.5]  # Adjust gamma to enhance the image
+    """
+
